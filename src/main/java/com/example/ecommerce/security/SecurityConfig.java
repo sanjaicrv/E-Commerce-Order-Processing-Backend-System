@@ -36,10 +36,13 @@ public class SecurityConfig {
                 .requestMatchers("/api/auth/**").permitAll()
                 // Swagger & API doc endpoints are public
                 .requestMatchers(
-                        "/v3/api-docs/**",
-                        "/swagger-ui/**",
-                        "/swagger-ui.html"
-                ).permitAll()
+                    "/v3/api-docs/**",
+                    "/api-docs/**",
+                    "/swagger-ui/**",
+                    "/swagger-ui.html",
+                    "/swagger-resources/**",
+                    "/webjars/**"
+            ).permitAll()
                 // Allow anyone to search and sort products
                 .requestMatchers(HttpMethod.GET, "/api/products/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/categories/**").permitAll()
